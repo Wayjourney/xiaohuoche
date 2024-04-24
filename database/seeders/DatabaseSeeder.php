@@ -38,9 +38,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $prices = Price::all();
-        Income::factory()->count(5)->for($price40)->for(User::first())->create();
-        Income::factory()->count(5)->for($price150)->for(User::all()[1])->create();
-        Income::factory()->count(5)->for($price200)->for(User::all()[2])->create();
-        Income::factory()->count(5)->for($price300)->for(User::all()[3])->create();
+        Income::factory()->count(10)->for($price40)->for(User::first())->create();
+        Income::factory()->count(10)->for($price150)->for(User::all()[1])->create();
+        Income::factory()->count(10)->for($price200)->for(User::all()[2])->create();
+        Income::factory()->count(10)->for($price300)->for(User::all()[3])->create();
     }
 }

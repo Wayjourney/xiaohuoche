@@ -25,8 +25,8 @@ class IncomeFactory extends Factory
         return [
             'user_id' => User::factory(),
             'price_id' => Price::factory(),
-            'created_at' => fake()->dateTimeBetween('-1 day', now()),
-            'updated_at' => fake()->dateTimeBetween('-1 day', now())
+            'created_at' => fake()->dateTimeBetween('-30 day', now()),
+            'updated_at' => fake()->dateTimeBetween('-30 day', now())
         ];
     }
 }
