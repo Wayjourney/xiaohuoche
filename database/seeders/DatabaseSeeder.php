@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Income;
 use App\Models\Price;
+use App\Models\Receipt;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -37,10 +38,14 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class
         ]);
 
-        $prices = Price::all();
         Income::factory()->count(10)->for($price40)->for(User::first())->create();
         Income::factory()->count(10)->for($price150)->for(User::all()[1])->create();
         Income::factory()->count(10)->for($price200)->for(User::all()[2])->create();
         Income::factory()->count(10)->for($price300)->for(User::all()[3])->create();
+
+        Receipt::factory()->count(10)->for(User::first())->create();
+        Receipt::factory()->count(10)->for(User::all()[1])->create();
+        Receipt::factory()->count(10)->for(User::all()[2])->create();
+        Receipt::factory()->count(10)->for(User::all()[3])->create();
     }
 }

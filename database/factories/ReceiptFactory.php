@@ -8,13 +8,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Income>
  */
-class IncomeFactory extends Factory
+class ReceiptFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
-
     /**
      * Define the model's default state.
      *
@@ -24,8 +19,8 @@ class IncomeFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'price_id' => Price::factory(),
             'operator_id' => User::factory(),
+            'valid' => 1,
             'created_at' => fake()->dateTimeBetween('-30 day', now()),
             'updated_at' => fake()->dateTimeBetween('-30 day', now())
         ];

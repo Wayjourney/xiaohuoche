@@ -21,19 +21,19 @@ class PriceSeeder extends Seeder
         Price::create([
             'amount' => 150,
             'count' => 10,
-            'type' => PayEnum::Charge
+            'type' => PayEnum::Charge->value
         ]);
 
         Price::create([
             'amount' => 200,
             'count' => 15,
-            'type' => PayEnum::Charge
+            'type' => PayEnum::Charge->value
         ]);
 
         Price::create([
             'amount' => 300,
             'count' => 25,
-            'type' => PayEnum::Charge
+            'type' => PayEnum::Charge->value
         ]);
     }
 }
