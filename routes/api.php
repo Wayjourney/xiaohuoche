@@ -21,14 +21,15 @@ Route::get('wx/user', function(Request $request) {
 //     return $json;
 // });
 
-Route::post('wx/getPhoneNumber', function (Request $request) {
-    $token = $request->input('token');
-    $code = $request->input('code');
-    $response = Http::post('https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token='.$token, ["code" => $code]);
-    $json = $response->json();
-    return $json;
-});
+// Route::post('wx/getPhoneNumber', function (Request $request) {
+//     $token = $request->input('token');
+//     $code = $request->input('code');
+//     $response = Http::post('https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token='.$token, ["code" => $code]);
+//     $json = $response->json();
+//     return $json;
+// });
 
+Route::get('/users/{openid}', [UserController::class, 'show']);
 Route::get('prices', PriceController::class);
 Route::get('incomes', [IncomeController::class, 'index']);
 Route::post('incomes', [IncomeController::class, 'store']);

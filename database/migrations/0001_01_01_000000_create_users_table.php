@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone')->unique()->index()->nullable();
-            $table->string('openid')->index(true);
+            $table->string('name')->default('微信用户');
+            $table->string('phone')->unique()->nullable();
+            $table->string('openid');
             $table->string('avatar')->nullable();
-            $table->integer('count');
+            $table->integer('count')->default(0);
             $table->timestamps();
+            $table->index('openid');
+            $table->index('phone');
         });
 
         Schema::create('sessions', function (Blueprint $table) {

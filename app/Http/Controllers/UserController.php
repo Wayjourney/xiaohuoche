@@ -10,6 +10,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class UserController extends Controller
 {
+    public function show(string $openid) {
+        $user = User::where('openid', $openid)->first();
+        if (!$user) {
+            $user = User::create([
+                'openid' => $openid
+            ]);
+        }
+        return $user;
+    }
+
     public function search(Request $request) {
         $request->validate([
             'phone' => 'required|numeric'
