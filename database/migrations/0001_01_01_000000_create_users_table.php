@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\RoleEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,9 +19,11 @@ return new class extends Migration
             $table->string('openid');
             $table->string('avatar')->nullable();
             $table->integer('count')->default(0);
-            $table->timestamps();
+            $table->string('role')->default(RoleEnum::User->value);
             $table->index('openid');
             $table->index('phone');
+            $table->timestamps();
+
         });
 
         Schema::create('sessions', function (Blueprint $table) {

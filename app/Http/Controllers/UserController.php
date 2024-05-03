@@ -10,6 +10,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class UserController extends Controller
 {
+    // public function index() {
+    //     return User::all();
+    // }
+
     public function show(string $openid) {
         $user = User::where('openid', $openid)->first();
         if (!$user) {
@@ -22,9 +26,8 @@ class UserController extends Controller
 
     public function search(Request $request) {
         $request->validate([
-            'phone' => 'required|numeric'
+            'phone' => 'required'
         ]);
-
         $user = User::where('phone', $request->phone)->first();
         if (!$user) {
             throw new NotFoundHttpException();

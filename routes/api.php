@@ -29,11 +29,15 @@ Route::get('wx/user', function(Request $request) {
 //     return $json;
 // });
 
-Route::get('/users/{openid}', [UserController::class, 'show']);
-Route::get('prices', PriceController::class);
-Route::get('incomes', [IncomeController::class, 'index']);
-Route::post('incomes', [IncomeController::class, 'store']);
+// Route::get('/users', [UserController::class, 'index']);
 Route::get('users/search', [UserController::class, 'search']);
 Route::post('users/decrease', [UserController::class, 'decrease']);
+Route::get('/users/{openid}', [UserController::class, 'show']);
+
+Route::get('prices', PriceController::class);
+
+Route::get('incomes', [IncomeController::class, 'index']);
+Route::post('incomes', [IncomeController::class, 'store']);
+
 Route::get('receipts', [ReceiptController::class, 'index']);
 Route::post('receipts/{receipt}/confirm', [ReceiptController::class, 'confirm']);
